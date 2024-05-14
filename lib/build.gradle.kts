@@ -5,11 +5,11 @@ plugins {
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
-    api(libs.commons.math3)
-    implementation(libs.guava)
+    implementation("me.tb:bitcoin-tx-parser:0.1.1-SNAPSHOT")
 }
 
 testing {
