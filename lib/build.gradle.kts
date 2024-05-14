@@ -22,6 +22,15 @@ testing {
     }
 }
 
+kotlin {
+    compilerOptions {
+        freeCompilerArgs = listOf(
+            "-opt-in=kotlin.ExperimentalUnsignedTypes",
+            "-opt-in=kotlin.ExperimentalStdlibApi",
+        )
+    }
+}
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
