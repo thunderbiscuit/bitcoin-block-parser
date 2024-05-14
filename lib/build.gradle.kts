@@ -23,6 +23,8 @@ testing {
 }
 
 kotlin {
+    explicitApi()
+
     compilerOptions {
         freeCompilerArgs = listOf(
             "-opt-in=kotlin.ExperimentalUnsignedTypes",

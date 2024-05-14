@@ -5,8 +5,8 @@
 
 package me.tb
 
-class Block(rawBlock: UByteArray) {
+public class Block(rawBlock: UByteArray) {
     private val blockReader = BlockReader(rawBlock)
-    val blockHeader = BlockHeader(blockReader.getNext(80))
-    val txCount = blockReader.getNextVarint().value
+    public val blockHeader: BlockHeader = BlockHeader(blockReader.getNext(80))
+    public val txCount: Int = blockReader.getNextVarint().value
 }

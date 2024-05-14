@@ -8,7 +8,7 @@ package me.tb
 import me.tb.txparser.BitcoinBytesReader
 import me.tb.txparser.txelements.VarInt
 
-class BlockReader(private var rawBlock: UByteArray) : BitcoinBytesReader {
+public class BlockReader(private var rawBlock: UByteArray) : BitcoinBytesReader {
     override fun get(): UByteArray {
         return rawBlock
     }
@@ -23,6 +23,7 @@ class BlockReader(private var rawBlock: UByteArray) : BitcoinBytesReader {
     }
 
     override fun getNextVarint(): VarInt {
+        // Note: this will error out if there aren't 9 bytes left; consider cleaning up
         val varint = VarInt(rawBlock.copyOfRange(0, 9))
         rawBlock = rawBlock.copyOfRange(varint.length, rawBlock.size)
         return varint
